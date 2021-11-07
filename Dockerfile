@@ -26,6 +26,8 @@ RUN apt-get update \
     sudo \
     gnupg \
     python3-apt \
+    apt-transport-https \
+    ca-certificates \
     && apt-get clean
 
 VOLUME [ "/sys/fs/cgroup" ]
