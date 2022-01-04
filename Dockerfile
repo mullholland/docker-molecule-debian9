@@ -1,6 +1,7 @@
 FROM debian:stretch
 
 LABEL maintainer="mullholland"
+LABEL build_update="2022-01-04"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
