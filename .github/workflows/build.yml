@@ -22,9 +22,7 @@ jobs:
         run: docker build -t docker-test .
 
       - name: Run the built image.
-        run: |
-          docker run --name test-container -d --privileged \
-          -v /sys/fs/cgroup:/sys/fs/cgroup:ro docker-test
+        run: docker run --name test-container -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro docker-test
 
       - name: Verify systemctl in the built image.
         run: docker exec --tty test-container env TERM=xterm systemctl --version
@@ -59,7 +57,7 @@ jobs:
         with:
           context: ./
           file: Dockerfile
-          platforms: linux/amd64
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: |
             ${{ github.repository }}:latest
